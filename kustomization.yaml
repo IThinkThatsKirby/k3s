@@ -1,0 +1,4 @@
+configMapGenerator:
+- name: variables
+  files:
+  - variables.env

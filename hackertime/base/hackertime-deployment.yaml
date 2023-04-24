@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hackertime-deployment
+  labels:
+    app: hackertime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hackertime
+  template:
+    metadata:
+      labels:
+        app: hackertime
+    spec:
+      resources:
+        limits:
+        cpu: "2"
+        memory: "4Gi"
+      containers:
+        - name: hackertime
+          image: registry.opensuse.org/opensuse/tumbleweed
+          volumeMounts:
+            - name: host-volume
+              mountPath: "/"
+          env:
+            - name: HOST_USER_ID
+              value: "1000"
+            - name: HOST_GROUP_ID
+              value: "1000"
+      volumes:
+        - name: host-volume
+          hostPath:
+            path: $(HACKERTIME_VOLUME_PATH)
+      dnsPolicy: Default
+      restartPolicy: Always
