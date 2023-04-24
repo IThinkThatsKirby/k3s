@@ -32,8 +32,8 @@ spec:
                   key: HACKERTIME_VOLUME_PATH
       resources:
         limits:
-          cpu: 4
-          memory: 4Gi
+          cpu: "4"
+          memory: "4Gi"
       volumes:
         - name: host-volume
           hostPath:
