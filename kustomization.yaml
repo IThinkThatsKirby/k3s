@@ -2,3 +2,7 @@ configMapGenerator:
 - name: variables
   files:
   - variables.env
+
+# deployment.yaml directly from the base
+resources:
+  - base/hackertime-deployment.yaml
