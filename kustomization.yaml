@@ -1,6 +1,6 @@
 resources:
   - ./hackertime/base/hackertime-deployment.yaml
-configMapGenerator:
-- name: variables
-  files:
-  - variables.env
+secretGenerator:
+  - name: host-path
+    envs:
+    - variables.env

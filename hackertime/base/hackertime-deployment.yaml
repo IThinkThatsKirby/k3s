@@ -25,11 +25,6 @@ spec:
               value: "1000"
             - name: HOST_GROUP_ID
               value: "1000"
-            - name: HACKERTIME_VOLUME_PATH
-              valueFrom:
-                configMapKeyRef:
-                  name: variables
-                  key: HACKERTIME_VOLUME_PATH
       resources:
         limits:
           cpu: "4"
@@ -39,5 +34,10 @@ spec:
           hostPath:
             path: $(HACKERTIME_VOLUME_PATH)
             type: Directory
+          secret:
+            secretName: host-path
+            items:
+              - key: path
+                path: variables.env
       dnsPolicy: Default
       restartPolicy: Always
