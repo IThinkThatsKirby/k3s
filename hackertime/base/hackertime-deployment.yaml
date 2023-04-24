@@ -14,10 +14,6 @@ spec:
       labels:
         app: hackertime
     spec:
-      resources:
-        limits:
-        cpu: "2"
-        memory: "4Gi"
       containers:
         - name: hackertime
           image: registry.opensuse.org/opensuse/tumbleweed
@@ -29,6 +25,10 @@ spec:
               value: "1000"
             - name: HOST_GROUP_ID
               value: "1000"
+          resources:
+            limits:
+              cpu: "2"
+              memory: "4Gi"
       volumes:
         - name: host-volume
           hostPath:
