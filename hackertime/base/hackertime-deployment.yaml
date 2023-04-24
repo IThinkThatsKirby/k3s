@@ -34,10 +34,5 @@ spec:
           hostPath:
             path: $(HACKERTIME_VOLUME_PATH)
             type: Directory
-          secret:
-            secretName: host-path
-            items:
-              - key: path
-                path: variables.env
       dnsPolicy: Default
       restartPolicy: Always
