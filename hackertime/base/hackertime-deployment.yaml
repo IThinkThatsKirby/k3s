@@ -30,13 +30,14 @@ spec:
                 configMapKeyRef:
                   name: variables
                   key: HACKERTIME_VOLUME_PATH
-          resources:
-            limits:
-              cpu: "2"
-              memory: "4Gi"
+      resources:
+        limits:
+          cpu: 4
+          memory: 4Gi
       volumes:
         - name: host-volume
           hostPath:
             path: $(HACKERTIME_VOLUME_PATH)
+            type: Directory
       dnsPolicy: Default
       restartPolicy: Always
