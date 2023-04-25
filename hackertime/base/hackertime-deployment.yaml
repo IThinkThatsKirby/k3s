@@ -25,10 +25,13 @@ spec:
               cpu: "2"
               memory: "2Gi"
           volumeMounts:
+            
             - mountPath: /
+              readOnly: false
               name: host-volume
       volumes:
-        - name: host-volume
+        - name: host-volume            
           hostPath:
-            type: DirectoryOrCreate
-            path: $(HACKERTIME_VOLUME_PATH)
+            
+            type: Directory
+            path: /$(HACKERTIME_VOLUME_PATH)
