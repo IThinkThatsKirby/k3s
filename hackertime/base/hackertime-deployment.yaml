@@ -17,21 +17,12 @@ spec:
       containers:
         - name: hackertime
           image: registry.opensuse.org/opensuse/tumbleweed
-          resources:
-            limits:
-              cpu: "4"
-              memory: "4Gi"
-            requests:
-              cpu: "2"
-              memory: "2Gi"
           volumeMounts:
-            
             - mountPath: /
               readOnly: false
               name: host-volume
       volumes:
         - name: host-volume            
           hostPath:
-            
             type: Directory
             path: /$(HACKERTIME_VOLUME_PATH)
