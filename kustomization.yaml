@@ -3,4 +3,4 @@ resources:
 secretGenerator:
   - name: host-path
     envs:
-    - variables.env
+      - .env.volumes

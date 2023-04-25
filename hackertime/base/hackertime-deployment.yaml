@@ -25,17 +25,10 @@ spec:
               cpu: "2"
               memory: "2Gi"
           volumeMounts:
-            - name: host-volume
-              mountPath: "/"
-          env:
-            - name: HOST_USER_ID
-              value: "1000"
-            - name: HOST_GROUP_ID
-              value: "1000"
+            - mountPath: /
+              name: host-volume
       volumes:
         - name: host-volume
           hostPath:
+            type: DirectoryOrCreate
             path: $(HACKERTIME_VOLUME_PATH)
-            type: Directory
-      dnsPolicy: Default
-      restartPolicy: Always
